@@ -80,7 +80,7 @@ pcre2 = ["grep/pcre2"]
 default = ["simd-accel", "pcre2"]
 
 [profile.release]
-lto="full"
+lto="fat"
 strip=true
 codegen-units=1
 panic="abort"
