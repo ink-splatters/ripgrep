@@ -77,12 +77,16 @@ walkdir = "2"
 [features]
 simd-accel = ["grep/simd-accel"]
 pcre2 = ["grep/pcre2"]
+default = ["simd-accel", "pcre2"]
 
 [profile.release]
-debug = 1
+lto="full"
+strip=true
+codegen-units=1
+panic="abort"
 
 [package.metadata.deb]
-features = ["pcre2"]
+features = ["pcre2","simd-accel"]
 section = "utils"
 assets = [
   ["target/release/rg", "usr/bin/", "755"],
